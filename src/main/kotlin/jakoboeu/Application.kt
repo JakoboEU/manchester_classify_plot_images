@@ -1,6 +1,7 @@
 package jakoboeu
 
 import jakoboeu.model.PlotImage
+import jakoboeu.model.imageVisionSchemaJson
 import jakoboeu.service.FileService
 import jakoboeu.service.ImageResizer
 import org.springframework.boot.ApplicationRunner
@@ -37,6 +38,7 @@ class Worker(
     val imageResizer: ImageResizer
 ) {
     fun classifyImages() {
+        print(imageVisionSchemaJson())
         val plotImageFiles = fileService.listAllPlotImageFiles()
             .map {
                 PlotImage.create(
