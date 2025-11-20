@@ -1,12 +1,10 @@
 package jakoboeu
 
-import jakoboeu.ai.GreenspaceClassifier
+import jakoboeu.ai.GreenspaceReclassifier
 import jakoboeu.ai.ImageClassifier
 import jakoboeu.model.PlotImage
 import jakoboeu.service.FileService
-import jakoboeu.service.GreenspaceTypeLoader
 import jakoboeu.service.ImageResizer
-import jakoboeu.service.SurveyDataLoader
 import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.WebApplicationType
@@ -39,13 +37,11 @@ fun main(args: Array<String>) {
 class Worker(
     val fileService: FileService,
     val imageResizer: ImageResizer,
-//    val greenspaceTypeLoader: GreenspaceTypeLoader,
-//    val greenspaceClassifier: GreenspaceClassifier,
-//    val surveyDataLoader: SurveyDataLoader,
     val imageClassifier: ImageClassifier,
+    val imageReclassifier: GreenspaceReclassifier
 ) {
     fun classifyImages() {
-        val plotImageFiles = fileService.listAllPlotImageFiles()
+        fileService.listAllPlotImageFiles()
             .map {
                 PlotImage.create(
                     it.title,
@@ -55,9 +51,13 @@ class Worker(
                 Pair(
                     it.title,
                     imageClassifier.classifyImage(it.file))
+            }.map {
+                imageReclassifier.reclassify(
+                    it.first,
+                    it.second.apparentGreenspace.apparentGreenspaceType,
+                    it.second.apparentGreenspace.apparentGreenspaceTypeCertainty1to5)
             }.forEach {
-                println(it.component1())
-                println(it.component2())
+                println(it)
             }
     }
 }

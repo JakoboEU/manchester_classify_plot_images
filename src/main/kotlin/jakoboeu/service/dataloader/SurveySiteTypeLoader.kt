@@ -1,4 +1,4 @@
-package jakoboeu.service
+package jakoboeu.service.dataloader
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
@@ -86,7 +86,7 @@ val surveyDataSchema: CsvSchema = CsvSchema.builder()
     .build();
 
 @Component
-class SurveyDataLoader {
+class SurveySiteTypeLoader : SiteTypeLoader {
 
     private val totalGroundCoverPerPlot = 400;
 
@@ -103,7 +103,6 @@ class SurveyDataLoader {
             .associateBy { it.title }
     }
 
-    fun surveyPlotData(title: String) : SurveyData? = this.siteIndex[title]
-    fun distinctLandUses(): Set<String> =
-        this.siteIndex.values.map { it.toSingleLandUse() }.toSet()
+    override fun siteType(title: String) : String? = this.siteIndex[title]?.toSingleLandUse()
+    override fun distinctSiteTypes(): Set<String> = this.siteIndex.values.map { it.toSingleLandUse() }.toSet()
 }

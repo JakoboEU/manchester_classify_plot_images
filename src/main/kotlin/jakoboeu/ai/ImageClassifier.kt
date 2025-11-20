@@ -10,9 +10,6 @@ import org.springframework.core.io.FileSystemResource
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import java.io.File
-import java.nio.charset.StandardCharsets
-import java.nio.file.Files
-import java.nio.file.StandardOpenOption
 
 @Component
 class ImageClassifier(
@@ -20,39 +17,6 @@ class ImageClassifier(
     private val objectMapper: ObjectMapper) {
 
     private val chat = ChatClient.create(this.chatModel);
-
-    fun File.withExtension(newExt: String): File {
-        val clean = newExt.removePrefix(".")
-        val base = nameWithoutExtension
-        val renamed = if (clean.isEmpty()) base else "$base.$clean"
-        return parentFile?.resolve(renamed) ?: File(renamed)
-    }
-
-    fun cachedClassifyImage(imagePath: File): ImageVision {
-        val cachedResponseLocation = imagePath.withExtension("json")
-
-        fun readCachedResponse(): ImageVision =
-            Files.newBufferedReader(cachedResponseLocation.toPath(), StandardCharsets.UTF_8).use { reader ->
-                return objectMapper.readValue(reader, ImageVision::class.java)
-            }
-
-        fun classifyAndCacheResponse(): ImageVision {
-            val result = classifyImage(imagePath)
-            Files.newBufferedWriter(
-                cachedResponseLocation.toPath(), StandardCharsets.UTF_8,
-                StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING
-            ).use { writer ->
-                objectMapper.writerWithDefaultPrettyPrinter().writeValue(writer, result)
-            }
-            return result;
-        }
-
-        return if (cachedResponseLocation.exists()) {
-            return readCachedResponse()
-        } else {
-            classifyAndCacheResponse()
-        }
-    }
 
     fun classifyImage(imagePath: File): ImageVision {
         val prompt = """
