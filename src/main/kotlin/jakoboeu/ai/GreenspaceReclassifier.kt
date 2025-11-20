@@ -55,12 +55,12 @@ class GreenspaceReclassifier(
         }.filter { it != null }
 
         val prompt = """
-            You are reconciling three land-use / greenspace labels into a single canonical category.
+            You are reconciling three land-use / greenspace labels into a single canonical label.
 
             You are given:
             - A fixed canonical greenspace taxonomy and definitions.
             - One or more independent source labels for one plot:
-              - An classification assigned by an LLM visual assistant based on an image of the site [llm mapped]
+              - A classification assigned by an LLM visual assistant based on an image of the site [llm mapped]
               - A classification based on a field visit to the site [field mapped]
               - A classification based on the OS Greenspace GIS data set [os mappped]
               - A classification based on a biological site type data set [bio mapped]
