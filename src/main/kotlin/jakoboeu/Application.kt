@@ -1,6 +1,7 @@
 package jakoboeu
 
 import jakoboeu.ai.GreenspaceClassifier
+import jakoboeu.ai.ImageClassifier
 import jakoboeu.model.PlotImage
 import jakoboeu.service.FileService
 import jakoboeu.service.GreenspaceTypeLoader
@@ -38,32 +39,25 @@ fun main(args: Array<String>) {
 class Worker(
     val fileService: FileService,
     val imageResizer: ImageResizer,
-    val greenspaceTypeLoader: GreenspaceTypeLoader,
-    val greenspaceClassifier: GreenspaceClassifier,
-    val surveyDataLoader: SurveyDataLoader
+//    val greenspaceTypeLoader: GreenspaceTypeLoader,
+//    val greenspaceClassifier: GreenspaceClassifier,
+//    val surveyDataLoader: SurveyDataLoader,
+    val imageClassifier: ImageClassifier,
 ) {
     fun classifyImages() {
-        println(
-            greenspaceClassifier.reclassifyGreenspace(
-                greenspaceTypeLoader.distinctOsGreenspaceTypes()
-            )
-        )
-        println(
-            greenspaceClassifier.reclassifyGreenspace(
-                greenspaceTypeLoader.distinctBiologicalSiteTypes()
-            )
-        )
-        println(
-            greenspaceClassifier.reclassifyGreenspace(
-                surveyDataLoader.distinctLandUses()
-            )
-        )
         val plotImageFiles = fileService.listAllPlotImageFiles()
             .map {
                 PlotImage.create(
                     it.title,
                 this.imageResizer.resizeImage(it.file)
                 )
+            }.map {
+                Pair(
+                    it.title,
+                    imageClassifier.classifyImage(it.file))
+            }.forEach {
+                println(it.component1())
+                println(it.component2())
             }
     }
 }

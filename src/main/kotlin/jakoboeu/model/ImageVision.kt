@@ -95,7 +95,7 @@ data class ApparentGreenspace(
     @param:JsonProperty("apparent_greenspace_type")
     val apparentGreenspaceType: GreenspaceType,
 
-    @param:JsonProperty("apparent_greenspace_type")
+    @param:JsonProperty("apparent_greenspace_type_certainty_1_5")
     @param:JsonPropertyDescription("Score 1 to 5 indicating certainty of the greenspace type classification: 1 = very uncertain, 5 = very certain.")
     val apparentGreenspaceTypeCertainty1to5: Int,
 
