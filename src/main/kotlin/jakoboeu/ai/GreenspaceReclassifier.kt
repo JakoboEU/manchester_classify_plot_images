@@ -28,11 +28,6 @@ data class ReclassifiedSiteType(
     val agreementPattern: String
 )
 
-data class ReclassifiedSiteTypeResponse(
-    val title: String,
-    val reclassifiedSiteType: ReclassifiedSiteType,
-)
-
 fun reclassifiedSiteTypeSchemaJson(): String {
     val mapper = jacksonObjectMapper()
         .registerModule(
@@ -54,7 +49,7 @@ class GreenspaceReclassifier(
 
     private val chat = ChatClient.create(this.chatModel);
 
-    fun reclassify(title: String, llmSiteType: GreenspaceType, llmSiteTypeCertainty1to5 : Int): ReclassifiedSiteTypeResponse {
+    fun reclassify(title: String, llmSiteType: GreenspaceType, llmSiteTypeCertainty1to5 : Int): ReclassifiedSiteType {
         val siteTypes = siteTypeMappers.map {
             it.mappedSiteType(title)
         }.filter { it != null }
@@ -114,6 +109,6 @@ class GreenspaceReclassifier(
             .content()
 
         val strippedJson = json!!.substring(json.indexOf('{'))
-        return ReclassifiedSiteTypeResponse(title, objectMapper.readValue(strippedJson, ReclassifiedSiteType::class.java))
+        return objectMapper.readValue(strippedJson, ReclassifiedSiteType::class.java)
     }
 }

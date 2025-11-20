@@ -2,6 +2,7 @@ package jakoboeu
 
 import jakoboeu.ai.GreenspaceReclassifier
 import jakoboeu.ai.ImageClassifier
+import jakoboeu.model.ImageVisionWithIdentity
 import jakoboeu.model.PlotImage
 import jakoboeu.service.FileService
 import jakoboeu.service.ImageResizer
@@ -41,23 +42,33 @@ class Worker(
     val imageReclassifier: GreenspaceReclassifier
 ) {
     fun classifyImages() {
-        fileService.listAllPlotImageFiles()
+        val classifiedImages = fileService.listAllPlotImageFiles()
             .map {
                 PlotImage.create(
                     it.title,
                 this.imageResizer.resizeImage(it.file)
                 )
             }.map {
-                Pair(
+                val classification = imageClassifier.classifyImage(it.file)
+                ImageVisionWithIdentity(
                     it.title,
-                    imageClassifier.classifyImage(it.file))
+                    classification.imageContents,
+                    classification.apparentGreenspaceType,
+                    classification.apparentGreenspaceTypeCertainty1to5
+                )
             }.map {
-                imageReclassifier.reclassify(
-                    it.first,
-                    it.second.apparentGreenspace.apparentGreenspaceType,
-                    it.second.apparentGreenspace.apparentGreenspaceTypeCertainty1to5)
-            }.forEach {
-                println(it)
-            }
+                val classification = imageReclassifier.reclassify(
+                    it.title,
+                    it.apparentGreenspaceType,
+                    it.apparentGreenspaceTypeCertainty1to5)
+                ImageVisionWithIdentity(
+                    it.title,
+                    it.imageContents,
+                    classification.finalCategory,
+                    classification.confidence
+                )
+            }.toList()
+
+        fileService.save(classifiedImages);
     }
 }

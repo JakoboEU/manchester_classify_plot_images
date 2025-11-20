@@ -1,0 +1,265 @@
+[ {
+  "title" : "298 6",
+  "imageContents" : {
+    "vegetation_structure" : {
+      "dominant_vegetation_type" : "short_mown_grass"
+    },
+    "accessibility_and_experience" : {
+      "path_type" : "paved_footpath",
+      "path_width_category" : "narrow_under_1m",
+      "open_space_presence" : true,
+      "visibility_distance_category" : "medium_10_30m"
+    },
+    "clutter_and_condition" : {
+      "visual_clutter_score_1_5" : 3,
+      "litter_or_dumping_visible" : false,
+      "parked_cars_prominent" : false,
+      "street_furniture_visible" : true,
+      "number_of_people_visible" : 0,
+      "maintenance_intensity" : "moderate",
+      "mowing_evidence" : "recent_mow"
+    },
+    "adjacent_infrastructure" : {
+      "buildings_visible" : false,
+      "road_or_parking_visible" : true,
+      "railway_infrastructure_visible" : false,
+      "water_body_visible" : false,
+      "play_equipment_present" : false
+    },
+    "photographic_clarity_score_1_5" : 4,
+    "short_notes" : "Urban outdoor space with short mown grass, narrow paved footpath, moderate visual clutter due to construction equipment and fencing, no people visible, some street furniture including a bike rack and litter bin, adjacent road and construction site visible."
+  },
+  "apparentGreenspaceType" : "playing_field_or_sports_pitch",
+  "apparentGreenspaceTypeCertainty1to5" : 5
+}, {
+  "title" : "203 6",
+  "imageContents" : {
+    "vegetation_structure" : {
+      "dominant_vegetation_type" : "tall_herb_meadow"
+    },
+    "accessibility_and_experience" : {
+      "path_type" : "none",
+      "path_width_category" : "none",
+      "open_space_presence" : true,
+      "visibility_distance_category" : "medium_10_30m"
+    },
+    "clutter_and_condition" : {
+      "visual_clutter_score_1_5" : 3,
+      "litter_or_dumping_visible" : false,
+      "parked_cars_prominent" : false,
+      "street_furniture_visible" : false,
+      "number_of_people_visible" : 0,
+      "maintenance_intensity" : "very_low_wild",
+      "mowing_evidence" : "none"
+    },
+    "adjacent_infrastructure" : {
+      "buildings_visible" : true,
+      "road_or_parking_visible" : false,
+      "railway_infrastructure_visible" : false,
+      "water_body_visible" : false,
+      "play_equipment_present" : false
+    },
+    "photographic_clarity_score_1_5" : 4,
+    "short_notes" : "Image shows a dense, wild vegetation area with tall herbs and shrubs, no visible paths, no people, no litter, and residential buildings in the background."
+  },
+  "apparentGreenspaceType" : "grassland_or_informal_park_or_common",
+  "apparentGreenspaceTypeCertainty1to5" : 4
+}, {
+  "title" : "108 3",
+  "imageContents" : {
+    "vegetation_structure" : {
+      "dominant_vegetation_type" : "short_mown_grass"
+    },
+    "accessibility_and_experience" : {
+      "path_type" : "none",
+      "path_width_category" : "none",
+      "open_space_presence" : true,
+      "visibility_distance_category" : "long_over_30m"
+    },
+    "clutter_and_condition" : {
+      "visual_clutter_score_1_5" : 1,
+      "litter_or_dumping_visible" : false,
+      "parked_cars_prominent" : false,
+      "street_furniture_visible" : false,
+      "number_of_people_visible" : 0,
+      "maintenance_intensity" : "high_formal",
+      "mowing_evidence" : "regularly_mown_lawn"
+    },
+    "adjacent_infrastructure" : {
+      "buildings_visible" : false,
+      "road_or_parking_visible" : false,
+      "railway_infrastructure_visible" : false,
+      "water_body_visible" : false,
+      "play_equipment_present" : false
+    },
+    "photographic_clarity_score_1_5" : 4,
+    "short_notes" : "Open grassy area with regularly mown lawn, surrounded by trees and shrubs. No visible paths, people, or infrastructure."
+  },
+  "apparentGreenspaceType" : "golf_course",
+  "apparentGreenspaceTypeCertainty1to5" : 5
+}, {
+  "title" : "108 1",
+  "imageContents" : {
+    "vegetation_structure" : {
+      "dominant_vegetation_type" : "closed_woodland"
+    },
+    "accessibility_and_experience" : {
+      "path_type" : "none",
+      "path_width_category" : "none",
+      "open_space_presence" : false,
+      "visibility_distance_category" : "short_less_10m"
+    },
+    "clutter_and_condition" : {
+      "visual_clutter_score_1_5" : 2,
+      "litter_or_dumping_visible" : false,
+      "parked_cars_prominent" : false,
+      "street_furniture_visible" : false,
+      "number_of_people_visible" : 0,
+      "maintenance_intensity" : "very_low_wild",
+      "mowing_evidence" : "none"
+    },
+    "adjacent_infrastructure" : {
+      "buildings_visible" : false,
+      "road_or_parking_visible" : false,
+      "railway_infrastructure_visible" : false,
+      "water_body_visible" : false,
+      "play_equipment_present" : false
+    },
+    "photographic_clarity_score_1_5" : 4,
+    "short_notes" : "Dense woodland with no visible paths or open spaces. No infrastructure or people visible. Scene is clear and well-lit."
+  },
+  "apparentGreenspaceType" : "woodland_or_copse",
+  "apparentGreenspaceTypeCertainty1to5" : 5
+}, {
+  "title" : "108 4",
+  "imageContents" : {
+    "vegetation_structure" : {
+      "dominant_vegetation_type" : "short_mown_grass"
+    },
+    "accessibility_and_experience" : {
+      "path_type" : "none",
+      "path_width_category" : "none",
+      "open_space_presence" : true,
+      "visibility_distance_category" : "long_over_30m"
+    },
+    "clutter_and_condition" : {
+      "visual_clutter_score_1_5" : 1,
+      "litter_or_dumping_visible" : false,
+      "parked_cars_prominent" : false,
+      "street_furniture_visible" : false,
+      "number_of_people_visible" : 0,
+      "maintenance_intensity" : "moderate",
+      "mowing_evidence" : "regularly_mown_lawn"
+    },
+    "adjacent_infrastructure" : {
+      "buildings_visible" : false,
+      "road_or_parking_visible" : false,
+      "railway_infrastructure_visible" : false,
+      "water_body_visible" : false,
+      "play_equipment_present" : false
+    },
+    "photographic_clarity_score_1_5" : 4,
+    "short_notes" : "Open grassy field with some trees at the edges, no visible paths, no people or infrastructure."
+  },
+  "apparentGreenspaceType" : "agricultural_field_or_pasture",
+  "apparentGreenspaceTypeCertainty1to5" : 4
+}, {
+  "title" : "420 7",
+  "imageContents" : {
+    "vegetation_structure" : {
+      "dominant_vegetation_type" : "none_or_paved"
+    },
+    "accessibility_and_experience" : {
+      "path_type" : "road_for_motor_vehicles",
+      "path_width_category" : "wide_over_3m",
+      "open_space_presence" : true,
+      "visibility_distance_category" : "long_over_30m"
+    },
+    "clutter_and_condition" : {
+      "visual_clutter_score_1_5" : 2,
+      "litter_or_dumping_visible" : false,
+      "parked_cars_prominent" : true,
+      "street_furniture_visible" : true,
+      "number_of_people_visible" : 0,
+      "maintenance_intensity" : "moderate",
+      "mowing_evidence" : "none"
+    },
+    "adjacent_infrastructure" : {
+      "buildings_visible" : true,
+      "road_or_parking_visible" : true,
+      "railway_infrastructure_visible" : false,
+      "water_body_visible" : false,
+      "play_equipment_present" : false
+    },
+    "photographic_clarity_score_1_5" : 4,
+    "short_notes" : "Urban street scene with parked cars on both sides, paved wide road, some trees planted in pavement cutouts, visible buildings and street furniture such as a trash bin, no people visible."
+  },
+  "apparentGreenspaceType" : "car_park",
+  "apparentGreenspaceTypeCertainty1to5" : 5
+}, {
+  "title" : "108 7",
+  "imageContents" : {
+    "vegetation_structure" : {
+      "dominant_vegetation_type" : "short_mown_grass"
+    },
+    "accessibility_and_experience" : {
+      "path_type" : "informal_earth_or_mud",
+      "path_width_category" : "narrow_under_1m",
+      "open_space_presence" : true,
+      "visibility_distance_category" : "long_over_30m"
+    },
+    "clutter_and_condition" : {
+      "visual_clutter_score_1_5" : 1,
+      "litter_or_dumping_visible" : false,
+      "parked_cars_prominent" : false,
+      "street_furniture_visible" : false,
+      "number_of_people_visible" : 0,
+      "maintenance_intensity" : "moderate",
+      "mowing_evidence" : "recent_mow"
+    },
+    "adjacent_infrastructure" : {
+      "buildings_visible" : false,
+      "road_or_parking_visible" : false,
+      "railway_infrastructure_visible" : false,
+      "water_body_visible" : false,
+      "play_equipment_present" : false
+    },
+    "photographic_clarity_score_1_5" : 4,
+    "short_notes" : "Open grassy area with short mown grass and scattered trees in the background. Narrow dirt path visible. No visible buildings, vehicles, people, or street furniture."
+  },
+  "apparentGreenspaceType" : "golf_course",
+  "apparentGreenspaceTypeCertainty1to5" : 5
+}, {
+  "title" : "231 2",
+  "imageContents" : {
+    "vegetation_structure" : {
+      "dominant_vegetation_type" : "tree_dominated_open_understorey"
+    },
+    "accessibility_and_experience" : {
+      "path_type" : "road_for_motor_vehicles",
+      "path_width_category" : "wide_over_3m",
+      "open_space_presence" : true,
+      "visibility_distance_category" : "medium_10_30m"
+    },
+    "clutter_and_condition" : {
+      "visual_clutter_score_1_5" : 3,
+      "litter_or_dumping_visible" : false,
+      "parked_cars_prominent" : true,
+      "street_furniture_visible" : false,
+      "number_of_people_visible" : 0,
+      "maintenance_intensity" : "moderate",
+      "mowing_evidence" : "none"
+    },
+    "adjacent_infrastructure" : {
+      "buildings_visible" : false,
+      "road_or_parking_visible" : true,
+      "railway_infrastructure_visible" : false,
+      "water_body_visible" : false,
+      "play_equipment_present" : false
+    },
+    "photographic_clarity_score_1_5" : 4,
+    "short_notes" : "Image shows a parking area with several parked cars adjacent to a tree-dominated area with open understorey. No people or litter visible. Moderate maintenance with no mowing evidence on visible vegetation."
+  },
+  "apparentGreenspaceType" : "car_park",
+  "apparentGreenspaceTypeCertainty1to5" : 5
+} ]

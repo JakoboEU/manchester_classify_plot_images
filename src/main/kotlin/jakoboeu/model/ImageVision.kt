@@ -91,18 +91,6 @@ data class AdjacentInfrastructure(
     val playEquipmentPresent: Boolean,
 )
 
-data class ApparentGreenspace(
-    @param:JsonProperty("apparent_greenspace_type")
-    val apparentGreenspaceType: GreenspaceType,
-
-    @param:JsonProperty("apparent_greenspace_type_certainty_1_5")
-    @param:JsonPropertyDescription("Score 1 to 5 indicating certainty of the greenspace type classification: 1 = very uncertain, 5 = very certain.")
-    val apparentGreenspaceTypeCertainty1to5: Int,
-
-    @param:JsonProperty("adjacent_infrastructure")
-    val adjacentInfrastructure: AdjacentInfrastructure
-)
-
 data class AccessibilityAndExperience(
     @param:JsonProperty("path_type")
     @param:JsonPropertyDescription("Best match for the main visible route a person could walk: none, informal_earth_or_mud, mown_grass_track, gravel, paved_footpath, shared_use_cycle_path, road_for_motor_vehicles.")
@@ -151,18 +139,10 @@ data class ClutterAndCondition(
     val mowingEvidence: MowingEvidence
 )
 
-data class OverallScores(
-    @param:JsonProperty("photographic_clarity_score_1_5")
-    @param:JsonPropertyDescription("1 = very poor quality (blurred, very dark/overexposed); 5 = very clear, well lit, easy to interpret. Use integers 1–5.")
-    val photographicClarityScore1To5: Int,
-)
 
-data class ImageVision(
+data class ImageContents(
     @param:JsonProperty("vegetation_structure")
     val vegetationStructure: VegetationStructure,
-
-    @param:JsonProperty("apparent_greenspace")
-    val apparentGreenspace: ApparentGreenspace,
 
     @param:JsonProperty("accessibility_and_experience")
     val accessibilityAndExperience: AccessibilityAndExperience,
@@ -170,11 +150,34 @@ data class ImageVision(
     @param:JsonProperty("clutter_and_condition")
     val clutterAndCondition: ClutterAndCondition,
 
-    @param:JsonProperty("overall_scores")
-    val overallScores: OverallScores,
+    @param:JsonProperty("adjacent_infrastructure")
+    val adjacentInfrastructure: AdjacentInfrastructure,
+
+    @param:JsonProperty("photographic_clarity_score_1_5")
+    @param:JsonPropertyDescription("1 = very poor quality (blurred, very dark/overexposed); 5 = very clear, well lit, easy to interpret. Use integers 1–5.")
+    val photographicClarityScore1To5: Int,
 
     @param:JsonProperty("short_notes")
     val shortNotes: String
+)
+
+data class ImageVision(
+    @param:JsonProperty("image")
+    val imageContents: ImageContents,
+
+    @param:JsonProperty("apparent_greenspace_type")
+    val apparentGreenspaceType: GreenspaceType,
+
+    @param:JsonProperty("apparent_greenspace_type_certainty_1_5")
+    @param:JsonPropertyDescription("Score 1 to 5 indicating certainty of the greenspace type classification: 1 = very uncertain, 5 = very certain.")
+    val apparentGreenspaceTypeCertainty1to5: Int,
+)
+
+data class ImageVisionWithIdentity(
+    val title: String,
+    val imageContents: ImageContents,
+    val apparentGreenspaceType: GreenspaceType,
+    val apparentGreenspaceTypeCertainty1to5: Int,
 )
 
 class ImageVisionVisitorContext : VisitorContext() {
