@@ -21,21 +21,6 @@ enum class DominantVegetationType(@JsonValue val value: String) {
     MIXED("mixed")
 }
 
-enum class ApparentGreenspaceType(@JsonValue val value: String) {
-    FORMAL_PARK("formal_park"),
-    INFORMAL_PARK_OR_COMMON("informal_park_or_common"),
-    STREET_VERGE_OR_ROUNDABOUT("street_verge_or_roundabout"),
-    RESIDENTIAL_GARDEN_OR_COURTYARD("residential_garden_or_courtyard"),
-    PLAYING_FIELD_OR_SPORTS_PITCH("playing_field_or_sports_pitch"),
-    PLAYGROUND("playground"),
-    ALLOTMENT_OR_COMMUNITY_GARDEN("allotment_or_community_garden"),
-    CEMETERY_OR_CHURCHYARD("cemetery_or_churchyard"),
-    WOODLAND_OR_COPSE("woodland_or_copse"),
-    RIPARIAN_OR_CANAL_EDGE("riparian_or_canal_edge"),
-    DERELICT_OR_VACANT_LAND("derelict_or_vacant_land"),
-    OTHER("other")
-}
-
 enum class PathType(@JsonValue val value: String) {
     NONE("none"),
     INFORMAL_EARTH_OR_MUD("informal_earth_or_mud"),
@@ -108,11 +93,11 @@ data class AdjacentInfrastructure(
 
 data class ApparentGreenspace(
     @param:JsonProperty("apparent_greenspace_type")
-    val apparentGreenspaceType: ApparentGreenspaceType,
+    val apparentGreenspaceType: GreenspaceType,
 
     @param:JsonProperty("apparent_greenspace_type")
     @param:JsonPropertyDescription("Score 1 to 5 indicating certainty of the greenspace type classification: 1 = very uncertain, 5 = very certain.")
-    val apparentGreenspaceTypeCertainty1to5: ApparentGreenspaceType,
+    val apparentGreenspaceTypeCertainty1to5: Int,
 
     @param:JsonProperty("adjacent_infrastructure")
     val adjacentInfrastructure: AdjacentInfrastructure

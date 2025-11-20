@@ -14,6 +14,13 @@ class SurveyData(
     @field:JsonProperty("Other_land_use") val otherLandUse: String
 ) {
     constructor() : this("", "", "")
+
+    fun toSingleLandUse(): String =
+        when (landUse) {
+            "Other" -> otherLandUse
+            "" -> otherLandUse
+            else -> landUse
+        }
 }
 
 val surveyDataSchema: CsvSchema = CsvSchema.builder()
@@ -79,7 +86,7 @@ val surveyDataSchema: CsvSchema = CsvSchema.builder()
     .build();
 
 @Component
-class SurveyPlotDataLoader {
+class SurveyDataLoader {
 
     private val totalGroundCoverPerPlot = 400;
 
@@ -97,4 +104,6 @@ class SurveyPlotDataLoader {
     }
 
     fun surveyPlotData(title: String) : SurveyData? = this.siteIndex[title]
+    fun distinctLandUses(): Set<String> =
+        this.siteIndex.values.map { it.toSingleLandUse() }.toSet()
 }
